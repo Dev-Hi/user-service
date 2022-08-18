@@ -27,4 +27,4 @@ jobs:
         run: chmod +x gradlew
 
       - name: Grable build
-      - run: ./gradlew build
+        run: ./gradlew build
