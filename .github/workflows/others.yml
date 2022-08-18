@@ -20,11 +20,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup gradle
+      - name: Build gradle
         uses: gradle/gradle-build-action@v2
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Grable build
-        run: ./gradlew build
+        with:
+          arguments: build
