@@ -2,7 +2,7 @@ name: workflow for other branchs
 on:
   push:
     branches:
-      - feature
+      - feature/*
       - fix
       - chore
       - hotfix
