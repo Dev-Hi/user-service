@@ -1,4 +1,4 @@
-name: workflow for other branches
+name: workflow for other branchs
 on:
   push:
     branches:
@@ -9,10 +9,10 @@ on:
 
 jobs:
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup java
         uses: actions/setup-java@v3
@@ -20,7 +20,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Grable build
+        run: ./gradlew build
