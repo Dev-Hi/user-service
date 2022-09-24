@@ -3,7 +3,6 @@ package com.kosmos.secondhand.account.configuration;
 import com.kosmos.secondhand.account.jwt.TokenManager;
 import com.kosmos.secondhand.account.mock.MockUser;
 import com.kosmos.secondhand.account.repository.UserRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
