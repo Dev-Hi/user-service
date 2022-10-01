@@ -2,7 +2,7 @@ package com.kosmos.secondhand.account.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosmos.secondhand.account.controller.dto.UserRequestDto;
-import com.kosmos.secondhand.account.util.ResponseMessage;
+import com.kosmos.secondhand.account.util.message.ResponseMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,7 @@ public class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.statusCode").value(HttpStatus.OK.value()))
                 .andExpect(jsonPath("$.message").value(ResponseMessage.SUCCESS))
+                .andExpect(jsonPath("$.userid").exists())
                 .andExpect(jsonPath("$.token").exists());
     }
 

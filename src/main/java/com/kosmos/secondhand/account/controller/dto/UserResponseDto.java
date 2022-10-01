@@ -16,6 +16,7 @@ public class UserResponseDto {
 
        private int statusCode;
        private String message;
+       private String userid;
        private String token;
 
    }
