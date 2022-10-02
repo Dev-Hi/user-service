@@ -1,4 +1,4 @@
-name: workflow for other branches
+name: workflow for work branches from org
 on:
   push:
     branches:
