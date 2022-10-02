@@ -1,4 +1,4 @@
-name: workflow for work branches from org
+name: workflow for work branches from source repo
 on:
   push:
     branches:
