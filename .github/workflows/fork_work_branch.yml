@@ -2,11 +2,7 @@ name: workflow for work branch from fork
 on:
   pull_request:
     branches:
-      - feat/*
-      - fix/*
-      - chore/*
-      - hotfix/*
-      - refactor/*
+      - develop
 
 jobs:
   build:
