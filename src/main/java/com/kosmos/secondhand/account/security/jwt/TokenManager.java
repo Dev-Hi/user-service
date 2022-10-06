@@ -1,4 +1,4 @@
-package com.kosmos.secondhand.account.jwt;
+package com.kosmos.secondhand.account.security.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;

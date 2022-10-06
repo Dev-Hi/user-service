@@ -1,6 +1,7 @@
 package com.kosmos.secondhand.account.mock;
 
-import com.kosmos.secondhand.account.jwt.TokenManager;
+import com.kosmos.secondhand.account.controller.role.Role;
+import com.kosmos.secondhand.account.security.jwt.TokenManager;
 import com.kosmos.secondhand.account.repository.UserRepository;
 import com.kosmos.secondhand.account.repository.entity.UserEntity;
 import lombok.Builder;
@@ -21,14 +22,15 @@ public class MockUser {
 
     @Autowired
     public MockUser(TokenManager tokenManager, UserRepository userRepository) {
-        mockUserEntities = new ArrayList<>();
+        this.mockUserEntities = new ArrayList<>();
         this.tokenManager = tokenManager;
         this.userRepository = userRepository;
     }
 
-    public void setMockUserEntities(String userid, String password) {
+    public void setMockUserEntities(String userid, String username, String password) {
         MockUserEntity data = MockUserEntity.builder()
                 .userid(userid)
+                .username(username)
                 .password(password)
                 .build();
 
@@ -50,14 +52,20 @@ public class MockUser {
     public static class MockUserEntity {
 
         private String userid;
+        private String username;
         private String password;
         private String token;
 
         public UserEntity toUserEntity() {
             return UserEntity.builder()
                     .userId(this.userid)
+                    .username(this.username)
                     .password(this.password)
-                    .role("user")
+                    .roles(List.of(Role.USER))
+                    .isAccountNonExpired(true)
+                    .isCredentialsNonExpired(true)
+                    .isEnabled(true)
+                    .isAccountNonLocked(true)
                     .token(this.token)
                     .build();
         }

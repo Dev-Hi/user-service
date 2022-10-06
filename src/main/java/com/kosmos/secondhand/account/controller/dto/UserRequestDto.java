@@ -12,7 +12,7 @@ public class UserRequestDto {
     @NoArgsConstructor
     public static class SignInDto {
 
-        private String id;
+        private String userid;
         private String password;
 
     }
