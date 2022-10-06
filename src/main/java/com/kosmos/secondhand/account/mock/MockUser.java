@@ -22,7 +22,7 @@ public class MockUser {
 
     @Autowired
     public MockUser(TokenManager tokenManager, UserRepository userRepository) {
-        mockUserEntities = new ArrayList<>();
+        this.mockUserEntities = new ArrayList<>();
         this.tokenManager = tokenManager;
         this.userRepository = userRepository;
     }

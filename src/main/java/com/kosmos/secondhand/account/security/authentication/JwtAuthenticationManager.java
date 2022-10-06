@@ -6,17 +6,19 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationManager implements AuthenticationManager {
 
     private final UserDetailsService userDetailsService;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         UserDetails userDetails = userDetailsService.loadUserByUsername(authentication.getPrincipal().toString());
 
-        if(!userDetails.getPassword().equals(authentication.getCredentials())) {
+        if(!passwordEncoder.matches(authentication.getCredentials().toString(), userDetails.getPassword())) {
             throw new BadCredentialsException("password is incorrect");
         }
 
